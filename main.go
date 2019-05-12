@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -15,6 +16,10 @@ func main() {
 	w := fs.Walk(h)
 	now := time.Now()
 	var files []string
+	var term int
+
+	flag.IntVar(&term, "term", 30, "Specify a term length for checking your files' access times. Default is 30.")
+	flag.Parse()
 
 	log := os.Getenv("HOME") + "/.pomelo.log"
 	msg := fmt.Sprintf("\nNew Entry Date %s\n", now)
@@ -43,12 +48,12 @@ func main() {
 		atime := time.Unix(int64(stat.Atimespec.Sec), int64(stat.Atimespec.Nsec))
 		diff := now.Sub(atime)
 
-		if diff.Hours() > 720 {
+		if diff.Hours() > 24*float64(term) {
 			files = append(files, f)
 		}
 	}
 
-	numFiles := fmt.Sprintf("Number of files 30 days and older: %d\n", len(files))
+	numFiles := fmt.Sprintf("Number of files %d days and older: %d\n", term, len(files))
 	fmt.Println(numFiles)
 
 	f, err := os.OpenFile(log, os.O_APPEND|os.O_WRONLY, 0644)
