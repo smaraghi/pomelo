@@ -66,5 +66,26 @@ func main() {
 		}
 	}
 
+	var res string
+	fmt.Println("Would you like to delete ALL of these files? [y|N]")
+	fmt.Scanln(&res)
+	if res == "y" {
+		fmt.Println("Are you sure? [y|N]")
+		fmt.Scanln(&res)
+		if res == "y" {
+			fmt.Println("Deleting all files.")
+			for _, v := range files {
+				os.Remove(v)
+			}
+		} else {
+			fmt.Println("Skipping.")
+		}
+
+	} else if res == "n" {
+		fmt.Println("Files will not be deleted.")
+	} else {
+		fmt.Println("Unknown answer, exiting now.")
+	}
+
 	fmt.Println("Pomelo complete")
 }
