@@ -78,6 +78,11 @@ func main() {
 		}
 	}
 
+	if len(files) == 0 {
+		fmt.Println("No files to delete.\nPomelo complete.")
+		os.Exit(0)
+	}
+
 	var res string
 	fmt.Println("Would you like to delete ALL of these files? [y|N]")
 	fmt.Scanln(&res)
