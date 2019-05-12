@@ -12,14 +12,21 @@ import (
 )
 
 func main() {
-	h := os.Getenv("HOME")
-	w := fs.Walk(h)
 	now := time.Now()
 	var files []string
+	var dir string
 	var term int
 
+	flag.StringVar(&dir, "dir", os.Getenv("HOME"), "Specify a directory to recursively search.")
 	flag.IntVar(&term, "term", 30, "Specify a term length for checking your files' access times. Default is 30.")
 	flag.Parse()
+
+	if _, err := os.Stat(dir); os.IsNotExist(err) {
+		fmt.Println("User specified path does not exist.")
+		os.Exit(1)
+	}
+
+	w := fs.Walk(dir)
 
 	log := os.Getenv("HOME") + "/.pomelo.log"
 	msg := fmt.Sprintf("\nNew Entry Date %s\n", now)
