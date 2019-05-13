@@ -26,8 +26,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	w := fs.Walk(dir)
-
 	log := os.Getenv("HOME") + "/.pomelo.log"
 	msg := fmt.Sprintf("\nNew Entry Date %s\n", now)
 	err := ioutil.WriteFile(log, []byte(msg), 0644)
@@ -36,6 +34,7 @@ func main() {
 		os.Exit(1)
 	}
 
+	w := fs.Walk(dir)
 	for w.Step() {
 		if err := w.Err(); err != nil {
 			fmt.Fprintln(os.Stderr, err)
