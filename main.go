@@ -30,7 +30,7 @@ func main() {
 
 	log := os.Getenv("HOME") + "/.pomelo.log"
 	msg := fmt.Sprintf("\nNew Entry Date %s\n", now)
-	err := ioutil.WriteFile(log, []byte(msg), 0644)
+	err := ioutil.WriteFile(log, []byte(msg), 0600)
 	if err != nil {
 		fmt.Println("Pomelo could not write to the log file.")
 		os.Exit(1)
