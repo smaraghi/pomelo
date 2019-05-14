@@ -1,15 +1,28 @@
 # Pomelo
 
-More details coming soon...
-
 #### About
+
+A fruity CLI for managing stale files on your system. 
 
 #### HOWTO
 
+##### Install
+
+Install Go if it is not already installed.
+
+Then from the terminal run `go get github.com/smaraghi/pomelo`.
+
+##### Use
+
+Pomelo ships with two flags, `-dir` and `-term`. 
+
+The `-dir` flag is utilized to specify a directory to recursively search. The default directory provided is the HOME directory. Run `-dir=x` to use in the command line. 
+
+The `-term` flag is utilized to specify a term length for checking your files' access times. The default term provided is 30 days. Run `-term=x` to use in the command line. 
+
 #### Author
 
-This code was written by _Serven Maraghi_, and you can find her at
-her [GitHub](https://github.com/smaraghi/).
+Written by [Serven Maraghi](https://github.com/smaraghi/).
 
 #### License
 
