@@ -1,5 +1,7 @@
 # Pomelo
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/smaraghi/pomelo)](https://goreportcard.com/report/github.com/smaraghi/pomelo)
+
 #### About
 
 A fruity CLI for managing stale files on your system. 
