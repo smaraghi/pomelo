@@ -1,6 +1,6 @@
 # Pomelo
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/smaraghi/pomelo)](https://goreportcard.com/report/github.com/smaraghi/pomelo)
+[![Go Report Card](https://goreportcard.com/badge/github.com/smaraghi/pomelo)](https://goreportcard.com/report/github.com/smaraghi/pomelo) ![Mozilla Public License](https://img.shields.io/badge/License-MPLv2-blue)
 
 #### About
 
