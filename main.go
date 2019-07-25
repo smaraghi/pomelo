@@ -59,8 +59,7 @@ func main() {
 		}
 	}
 
-	numFiles := fmt.Sprintf("Number of files %d days and older: %d\n", term, len(files))
-	fmt.Println(numFiles)
+	fmt.Printf("Number of files %d days and older: %d\n", term, len(files))
 
 	f, err := os.OpenFile(log, os.O_APPEND|os.O_WRONLY, 0644)
 	if err != nil {
